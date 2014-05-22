@@ -12,11 +12,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from ubuntu:precise
+from ubuntu:12.04
 
 maintainer Dockerfiles
 
-run echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 run apt-get update
 run apt-get install -y build-essential git
 run apt-get install -y python python-dev python-setuptools
@@ -28,8 +27,7 @@ run pip install uwsgi
 
 # install nginx
 run apt-get install -y python-software-properties
-run apt-get update
-RUN add-apt-repository -y ppa:nginx/stable
+run add-apt-repository -y ppa:nginx/stable
 run apt-get install -y sqlite3
 
 # install our code
